@@ -7,6 +7,14 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-rdp-dev-001"
 		},
+		"pl_trigger_databricks_customer_job_properties_0_typeProperties_jobId": {
+			"type": "string",
+			"defaultValue": "609324242011405"
+		},
+		"ls_azuredatabricks_job_dev_properties_typeProperties_workspaceResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/4f0c7ea1-90d7-4477-bff0-a753c5ae53b6/resourceGroups/rgp-rdp-dev-001/providers/Microsoft.Databricks/workspaces/dbw-rdp-dev-001"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -33,6 +41,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"ls_azuredatabricks_job_dev_properties_typeProperties_workspaceResourceId": {
+						"value": "[parameters('ls_azuredatabricks_job_dev_properties_typeProperties_workspaceResourceId')]"
+					},
+					"pl_trigger_databricks_customer_job_properties_0_typeProperties_jobId": {
+						"value": "[parameters('pl_trigger_databricks_customer_job_properties_0_typeProperties_jobId')]"
 					}
 				}
 			},
