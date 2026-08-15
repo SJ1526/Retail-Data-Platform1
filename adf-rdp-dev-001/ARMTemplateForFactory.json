@@ -11,6 +11,10 @@
 			"type": "string",
 			"defaultValue": "609324242011405"
 		},
+		"ls_azuredatabricks_job_dev_properties_typeProperties_domain": {
+			"type": "string",
+			"defaultValue": "https://adb-7405615121107754.14.azuredatabricks.net"
+		},
 		"ls_azuredatabricks_job_dev_properties_typeProperties_workspaceResourceId": {
 			"type": "string",
 			"defaultValue": "/subscriptions/4f0c7ea1-90d7-4477-bff0-a753c5ae53b6/resourceGroups/rgp-rdp-dev-001/providers/Microsoft.Databricks/workspaces/dbw-rdp-dev-001"
@@ -64,7 +68,7 @@
 				"annotations": [],
 				"type": "AzureDatabricks",
 				"typeProperties": {
-					"domain": "https://adb-7405615121107754.14.azuredatabricks.net",
+					"domain": "[parameters('ls_azuredatabricks_job_dev_properties_typeProperties_domain')]",
 					"authentication": "MSI",
 					"workspaceResourceId": "[parameters('ls_azuredatabricks_job_dev_properties_typeProperties_workspaceResourceId')]"
 				}
