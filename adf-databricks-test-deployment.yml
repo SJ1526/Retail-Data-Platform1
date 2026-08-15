@@ -1,0 +1,37 @@
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: self
+  persistCredentials: true
+  fetchDepth: 0
+
+# Get the ADF-generated ARM templates from adf_publish
+- script: |
+    git fetch origin adf_publish
+    git checkout origin/adf_publish -- adf-rdp-dev-001
+  displayName: 'Get ADF ARM templates from adf_publish'
+
+- task: AzureResourceManagerTemplateDeployment@3
+  displayName: 'Deploy ADF to TEST'
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'sc-test-rdp-001'
+    subscriptionId: '4f0c7ea1-90d7-4477-bff0-a753c5ae53b6'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'rgp-rdp-test-001'
+    location: 'East US'
+    templateLocation: 'Linked artifact'
+
+    csmFile: '$(System.DefaultWorkingDirectory)/adf-rdp-dev-001/ARMTemplateForFactory.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/adf-rdp-dev-001/ARMTemplateParametersForFactory.json'
+
+    overrideParameters: >
+      -factoryName "adf-rdp-test-001"
+      -pl_trigger_databricks_customer_job_properties_0_typeProperties_jobId "326222302195794"
+      -ls_azuredatabricks_job_dev_properties_typeProperties_domain "https://adb-7405604659323850.10.azuredatabricks.net"
+      -ls_azuredatabricks_job_dev_properties_typeProperties_workspaceResourceId "/subscriptions/4f0c7ea1-90d7-4477-bff0-a753c5ae53b6/resourceGroups/rgp-rdp-test-001/providers/Microsoft.Databricks/workspaces/dbw-rdp-test-001"
+
+    deploymentMode: 'Incremental'
