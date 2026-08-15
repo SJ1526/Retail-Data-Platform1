@@ -22,17 +22,7 @@
             "userAssignedIdentities": "="
         }
     },
-    "Microsoft.DataFactory/factories/pipelines": {
-    "properties": {
-        "activities": [
-            {
-                "typeProperties": {
-                    "jobId": "="
-                }
-            }
-        ]
-    }
-},
+    "Microsoft.DataFactory/factories/pipelines": {},
     "Microsoft.DataFactory/factories/integrationRuntimes": {
         "properties": {
             "typeProperties": {
@@ -108,7 +98,6 @@
                     "clusterSshUserName": "=",
                     "hostSubscriptionId": "=",
                     "clusterResourceGroup": "=",
-                    "workspaceResourceId": "=",
                     "subscriptionId": "=",
                     "resourceGroupName": "=",
                     "tenant": "=",
@@ -150,7 +139,7 @@
                 "typeProperties": {
                     "folderPath": "=",
                     "fileName": "="
-                }       
+                }
             }
         }
     },
