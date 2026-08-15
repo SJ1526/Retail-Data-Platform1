@@ -23,16 +23,16 @@
         }
     },
     "Microsoft.DataFactory/factories/pipelines": {
-    "properties": {
-        "activities": [
-            {
-                "typeProperties": {
-                    "jobId": "="
+        "properties": {
+            "activities": [
+                {
+                    "typeProperties": {
+                        "jobId": "="
+                    }
                 }
-            }
-        ]
-    }
-},
+            ]
+        }
+    },
     "Microsoft.DataFactory/factories/integrationRuntimes": {
         "properties": {
             "typeProperties": {
@@ -109,6 +109,7 @@
                     "hostSubscriptionId": "=",
                     "clusterResourceGroup": "=",
                     "workspaceResourceId": "=",
+                    "domain": "=",
                     "subscriptionId": "=",
                     "resourceGroupName": "=",
                     "tenant": "=",
